@@ -127,7 +127,7 @@ function itemBuy(itemId,stockQuantity,price) {
 	.then(function(answer) {
 		var tempQuant = stockQuantity - answer.quantity;
 		var total =   price * answer.quantity;
-		var query = "UPDATE `bamazon_db`.`products` SET `stockQuantity` = ? WHERE item_id =?";
+		var query = "UPDATE products SET stock_quantity =? WHERE item_id =?";
 		connection.query(query, [tempQuant, itemId], function(err, res) {
 			if (tempQuant > 0) {
 			console.log("\n------------------------------------------------------------");
